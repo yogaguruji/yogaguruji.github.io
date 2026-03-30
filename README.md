@@ -1,4 +1,3 @@
-# yogaguruji.github.io
 # YogaGuruji.github.io
 About
 This project is a modern, responsive landing page for Yoga Guruji – Rahul, Yoga & Fitness Trainer from Delhi. It is built with pure HTML, Tailwind CSS (via CDN), and a bit of JavaScript for theme toggling, animations, and contact form handling.
