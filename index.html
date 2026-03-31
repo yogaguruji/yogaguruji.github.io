@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO -->
+    <title>Yoga Guruji | Rahul Yoga & Fitness Trainer Delhi</title>
+    <meta name="description"
+        content="Yoga Guruji (Rahul) – Yoga & fitness trainer from Delhi. Join online morning batches, offline classes, and follow along with 600+ YouTube videos for pain relief, flexibility, and weight loss.">
+
+    <!-- Tailwind Config & Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#fbbf24',
+                        primary: '#16a34a',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b'
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Theme Initializer (No FOUC) -->
+    <script>
+        (function () {
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #16a34a;
+            border-radius: 5px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #fbbf24;
+        }
+
+        /* Animations & Effects */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* WhatsApp Pulse Effect */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-float {
+            animation: pulse 2s infinite;
+        }
+    </style>
+    <!-- Favicon Placeholder -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3663/3663335.png">
+</head>
+
+<body
+    class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 transition-colors duration-500 font-sans selection:bg-primary selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav
+        class="fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-darkBg/90 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Brand -->
+            <a href="#" class="transition-transform duration-300 hover:scale-105">
+                <!-- Logo + Name Container -->
+                <div class="flex flex-col items-center">
+                    
+                    <!-- Logo Icon -->
+                    <img src="yogaguruji_logo_1774861678833.png" 
+                         alt="Yoga Guruji logo" 
+                         class="h-14 w-auto drop-shadow-sm">
+                    
+                    <!-- Name under logo -->
+                    <h1 class="mt-2 text-xl font-semibold text-gray-800 dark:text-white tracking-wide">
+                        YOGA GURUJI
+                    </h1>
+
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#categories"
+                    class="font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-gold transition duration-300">Classes</a>
+                <a href="#reviews"
+                    class="font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-gold transition duration-300">Students</a>
+                <a href="#social"
+                    class="font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-gold transition duration-300">Social Media</a>
+                <a href="#contact"
+                    class="font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-gold transition duration-300">Contact</a>
+
+                <!-- Day / Night Toggle -->
+                <button id="theme-toggle"
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition shadow-inner border border-gray-200 dark:border-gray-700"
+                    aria-label="Toggle Dark Mode">
+                    <i id="theme-icon" class="fas fa-moon text-gray-800 dark:text-yellow-400"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-800 dark:text-white">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 absolute w-full transition-colors duration-300">
+            <a href="#categories"
+                class="block px-6 py-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">Classes</a>
+            <a href="#reviews"
+                class="block px-6 py-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">Students</a>
+            <a href="#social"
+                class="block px-6 py-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">Social Media</a>
+            <a href="#contact"
+                class="block px-6 py-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+            <!-- Mobile Day / Night Toggle -->
+            <div class="px-6 py-4 border-t border-gray-100 dark:border-gray-800">
+                <button id="mobile-theme-toggle"
+                    class="flex items-center space-x-3 w-full p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-white transition">
+                    <i id="mobile-theme-icon"
+                        class="fas fa-moon w-6 text-center text-gray-800 dark:text-yellow-400"></i>
+                    <span id="mobile-theme-text" class="font-medium">Dark Mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 px-4 overflow-hidden bg-center bg-cover bg-no-repeat"
+        style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2000');">
+        
+        <!-- Premium Dark Overlay for Text Readability -->
+        <div class="absolute inset-0 bg-black/50 dark:bg-black/70 pointer-events-none transition-colors duration-500"></div>
+
+        <!-- Decorative Subtle Glow in Center -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60 pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <div
+                class="inline-block mb-6 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white font-semibold text-sm border border-white/20 fade-up">
+                <i class="fas fa-spa mr-2 w-3 inline-block"></i>Yoga • Fitness • Online Batches
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white fade-up" style="transition-delay: 100ms;">
+                Transform Your Body & Mind<br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300 dark:from-gold dark:to-yellow-300">
+                    With Yoga Guruji – Rahul, Delhi
+                </span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-200 dark:text-gray-300 mb-10 max-w-2xl mx-auto font-medium fade-up"
+                style="transition-delay: 200ms;">
+                Join morning online yoga batches, offline classes in Delhi, and follow 600+ guided videos on YouTube for
+                pain relief, flexibility, weight loss, and overall fitness.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 fade-up"
+                style="transition-delay: 300ms;">
+                <a href="#contact"
+                    class="w-full sm:w-auto px-8 py-4 bg-primary text-white font-bold rounded-full shadow-lg shadow-primary/30 hover:bg-emerald-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-lg">
+                    Join Online Morning Batch
+                </a>
+                <a href="#youtube"
+                    class="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md text-white font-bold rounded-full shadow hover:-translate-y-1 hover:shadow-xl border border-white/20 hover:bg-white/20 transition-all duration-300 text-lg">
+                    Watch on YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLASSES / CATEGORIES -->
+    <section id="categories"
+        class="py-24 bg-white dark:bg-gray-900/50 transition-colors duration-500 border-y border-gray-100 dark:border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-up">
+                <span
+                    class="text-primary dark:text-gold font-bold tracking-wider uppercase text-sm mb-2 block">Classes</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">Yoga & Fitness
+                    Programs</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+                    Choose the practice style that suits your lifestyle – from home‑based online sessions to offline
+                    studio classes in Delhi.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Category 1 -->
+                <div
+                    class="p-8 bg-gray-50 dark:bg-darkCard rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-up group">
+                    <div
+                        class="w-16 h-16 bg-green-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center text-primary dark:text-gold text-2xl mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white dark:group-hover:bg-gold dark:group-hover:text-gray-900 transition-all duration-300 shadow-sm">
+                        <i class="fas fa-house-chimney"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Online Morning Batches</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Live online yoga classes, Monday to Friday, with convenient morning batches like 5–6 am and
+                        6:10–7:10 am so you can practice from home.
+                    </p>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="p-8 bg-gray-50 dark:bg-darkCard rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-up group"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="w-16 h-16 bg-green-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center text-primary dark:text-gold text-2xl mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white dark:group-hover:bg-gold dark:group-hover:text-gray-900 transition-all duration-300 shadow-sm">
+                        <i class="fas fa-person-running"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Offline Yoga & Fitness (Delhi)
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Personal and group yoga‑fitness sessions in Delhi focusing on strength, flexibility, correct
+                        posture, and Mahadev‑style akhada energy.
+                    </p>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="p-8 bg-gray-50 dark:bg-darkCard rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-up group"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="w-16 h-16 bg-green-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center text-primary dark:text-gold text-2xl mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white dark:group-hover:bg-gold dark:group-hover:text-gray-900 transition-all duration-300 shadow-sm">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Pain‑Relief & Therapy Focus</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Targeted sequences for cervical spondylosis, neck & back pain, posture correction, and eyesight
+                        support using safe, guided yoga practices.
+                    </p>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="p-8 bg-gray-50 dark:bg-darkCard rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-up group"
+                    style="transition-delay: 300ms;">
+                    <div
+                        class="w-16 h-16 bg-green-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center text-primary dark:text-gold text-2xl mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white dark:group-hover:bg-gold dark:group-hover:text-gray-900 transition-all duration-300 shadow-sm">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Corporate / Group Sessions</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Yoga and wellness sessions for offices, societies, and events like International Yoga Day,
+                        Hindu New Year, and festivals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YOUTUBE VIDEO SECTION -->
+    <section id="youtube"
+        class="py-24 bg-gray-50 dark:bg-darkBg transition-colors duration-500 border-b border-gray-100 dark:border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text / Info -->
+                <div class="fade-up text-center lg:text-left">
+                    <span class="text-primary dark:text-gold font-bold tracking-wider uppercase text-sm mb-2 block">Our
+                        Channel</span>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white">
+                        Watch Yoga Guruji on YouTube
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg mb-4 leading-relaxed">
+                        The “Yoga Guruji” YouTube channel (@yogaguruji4404) shares 600+ videos with step‑by‑step yoga
+                        flows, wall yoga, Surya Namaskar, cervical relief, and lifestyle tips.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg mb-8 leading-relaxed">
+                        Join a growing community of more than 2K subscribers and practice anytime with guided sessions
+                        recorded directly from Rahul’s classes.
+                    </p>
+                    <a href="https://www.youtube.com/channel/UC9I0V0Ly8t08khh1Yhn0RhA" target="_blank"
+                        class="inline-flex items-center gap-3 px-8 py-4 bg-[#ff0000] text-white font-bold rounded-full shadow-lg shadow-red-600/30 hover:bg-red-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-lg">
+                        <i class="fab fa-youtube text-2xl"></i> Subscribe Yoga Guruji
+                    </a>
+                </div>
+
+                <!-- Embed -->
+                <div class="fade-up w-full flex justify-center lg:justify-end" style="transition-delay: 100ms;">
+                    <div
+                        class="w-full max-w-2xl aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-800">
+                        <!-- Replace with a good Yoga Guruji video ID -->
+                        <iframe class="w-full h-full"
+                            src="https://www.youtube.com/embed/tWq9KjYk0fU?si=V2I9gyQ4YALSEiEi"
+                            title="Yoga Guruji YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY / TESTIMONIALS -->
+    <section id="reviews" class="py-24 relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-64 h-64 bg-gold/10 dark:bg-gold/5 rounded-full blur-[80px] pointer-events-none">
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <span
+                class="text-primary dark:text-gold font-bold tracking-wider uppercase text-sm mb-2 block fade-up">Students</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-16 text-gray-900 dark:text-white fade-up">
+                What Students Say
+            </h2>
+
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div
+                    class="p-8 bg-white dark:bg-darkCard rounded-3xl shadow-lg border border-gray-200 dark:border-gray-800 text-left fade-up relative">
+                    <i class="fas fa-quote-left absolute top-6 right-8 text-4xl text-gray-200 dark:text-gray-800"></i>
+                    <div class="text-yellow-400 text-lg mb-6 flex gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-8 relative z-10">
+                        "Rahul sir’s online morning class changed my routine. My neck and back pain have reduced a lot
+                        and I feel energetic the whole day."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-primary/20 dark:bg-gold/20 rounded-full flex items-center justify-center text-primary dark:text-gold font-bold text-lg">
+                            A</div>
+                        <div>
+                            <p class="font-bold text-gray-900 dark:text-white">Anjali Sharma</p>
+                            <p class="text-sm text-gray-500">Online Batch Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="p-8 bg-white dark:bg-darkCard rounded-3xl shadow-lg border border-gray-200 dark:border-gray-800 text-left fade-up relative"
+                    style="transition-delay: 100ms;">
+                    <i class="fas fa-quote-left absolute top-6 right-8 text-4xl text-gray-200 dark:text-gray-800"></i>
+                    <div class="text-yellow-400 text-lg mb-6 flex gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-8 relative z-10">
+                        "I started with YouTube videos of Yoga Guruji and then joined offline class in Delhi. My
+                        flexibility and stamina improved in just a few weeks."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-primary/20 dark:bg-gold/20 rounded-full flex items-center justify-center text-primary dark:text-gold font-bold text-lg">
+                            R</div>
+                        <div>
+                            <p class="font-bold text-gray-900 dark:text-white">Rohit Verma</p>
+                            <p class="text-sm text-gray-500">Offline Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="p-8 bg-white dark:bg-darkCard rounded-3xl shadow-lg border border-gray-200 dark:border-gray-800 text-left fade-up relative"
+                    style="transition-delay: 200ms;">
+                    <i class="fas fa-quote-left absolute top-6 right-8 text-4xl text-gray-200 dark:text-gray-800"></i>
+                    <div class="text-yellow-400 text-lg mb-6 flex gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-8 relative z-10">
+                        "The way Rahul ji explains each posture is very clear and safe. Even as a beginner I feel
+                        confident practicing daily."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-primary/20 dark:bg-gold/20 rounded-full flex items-center justify-center text-primary dark:text-gold font-bold text-lg">
+                            N</div>
+                        <div>
+                            <p class="font-bold text-gray-900 dark:text-white">Neha Gupta</p>
+                            <p class="text-sm text-gray-500">Beginner Yogi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="p-8 bg-white dark:bg-darkCard rounded-3xl shadow-lg border border-gray-200 dark:border-gray-800 text-left fade-up relative"
+                    style="transition-delay: 100ms;">
+                    <i class="fas fa-quote-left absolute top-6 right-8 text-4xl text-gray-200 dark:text-gray-800"></i>
+                    <div class="text-yellow-400 text-lg mb-6 flex gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-8 relative z-10">
+                        "Office stress reduced and sleep improved after starting evening practice with Yoga Guruji’s
+                        videos and live classes."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-primary/20 dark:bg-gold/20 rounded-full flex items-center justify-center text-primary dark:text-gold font-bold text-lg">
+                            S</div>
+                        <div>
+                            <p class="font-bold text-gray-900 dark:text-white">Sandeep Rao</p>
+                            <p class="text-sm text-gray-500">Working Professional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="p-8 bg-white dark:bg-darkCard rounded-3xl shadow-lg border border-gray-200 dark:border-gray-800 text-left fade-up relative"
+                    style="transition-delay: 200ms;">
+                    <i class="fas fa-quote-left absolute top-6 right-8 text-4xl text-gray-200 dark:text-gray-800"></i>
+                    <div class="text-yellow-400 text-lg mb-6 flex gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-8 relative z-10">
+                        "Cervical pain exercises from YouTube plus personal guidance in class have made a big
+                        difference. Highly recommended."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-primary/20 dark:bg-gold/20 rounded-full flex items-center justify-center text-primary dark:text-gold font-bold text-lg">
+                            V</div>
+                        <div>
+                            <p class="font-bold text-gray-900 dark:text-white">Vikram Singh</p>
+                            <p class="text-sm text-gray-500">Pain‑Relief Program</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="p-8 bg-white dark:bg-darkCard rounded-3xl shadow-lg border border-gray-200 dark:border-gray-800 text-left fade-up relative"
+                    style="transition-delay: 300ms;">
+                    <i class="fas fa-quote-left absolute top-6 right-8 text-4xl text-gray-200 dark:text-gray-800"></i>
+                    <div class="text-yellow-400 text-lg mb-6 flex gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-8 relative z-10">
+                        "From Surya Namaskar to wall yoga, everything is taught with patience. Har Har Mahadev vibes
+                        in every session!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-primary/20 dark:bg-gold/20 rounded-full flex items-center justify-center text-primary dark:text-gold font-bold text-lg">
+                            P</div>
+                        <div>
+                            <p class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                Priya Desai
+                                <span class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-[10px] px-1.5 py-0.5 rounded-full border border-green-200 dark:border-green-800">
+                                    <i class="fas fa-check-circle mr-1"></i>Verified
+                                </span>
+                            </p>
+                            <p class="text-sm text-gray-500">Regular Practitioner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA (Parallel Column Layout) -->
+    <section id="social" class="py-24 bg-gray-50 dark:bg-darkBg border-t border-gray-100 dark:border-gray-800/50 transition-colors duration-500 overflow-hidden relative">
+        <!-- Subtle Decorative Background Glows -->
+        <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold/5 dark:bg-gold/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <!-- Global Section Header -->
+            <div class="text-center mb-20 fade-up">
+                <span class="text-primary dark:text-gold font-bold tracking-wider uppercase text-sm mb-3 block">Digital Ecosystem</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">Connect With Your Community</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-gold mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                    Join over 35,000 students across our social platforms. 
+                    From daily reels to live sessions, we bring the yoga studio to your screen.
+                </p>
+            </div>
+
+            <!-- Parallel Columns Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                
+                <!-- COLUMN 1: INSTAGRAM -->
+                <div class="flex flex-col space-y-12 fade-up" style="transition-delay: 100ms;">
+                    
+                    <!-- Instagram Profile Card -->
+                    <div class="group bg-white dark:bg-darkCard rounded-[2.5rem] shadow-xl p-10 border border-gray-100 dark:border-gray-800 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 relative overflow-hidden">
+                        <!-- Card Aesthetic Accent -->
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] transition-all duration-700 group-hover:w-48 group-hover:h-48"></div>
+                        
+                        <div class="relative z-10 flex flex-col items-center">
+                            <!-- Avatar with Gradient Border -->
+                            <div class="relative mb-8">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 rounded-full blur-md opacity-20 group-hover:opacity-60 transition-opacity"></div>
+                                <img src="https://scontent.cdninstagram.com/v/t51.2885-19/328801286_522854666444943_579613767402450590_n.jpg?stp=dst-jpg_s100x100_tt6&_nc_cat=104&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy40NjEuQzMifQ%3D%3D&_nc_ohc=7as2_Jzan3AQ7kNvwElUHtH&_nc_oc=AdoyZvKNhL4kmYQn7NScaMw5q4tx8GDktZ07IRv5fllcM1cFSHQO9KYF6jChv3rY5EiE-m3vU77-XNusmiMHVeDk&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7a30f&oh=00_AfwDbe1dg746zUEAiKDIgvzkgZJMNaB5UAzI9PXEpyfT_A&oe=69CFFABE"
+                                    alt="Yoga Guruji Instagram"
+                                    class="w-32 h-32 rounded-full border-4 border-white dark:border-gray-700 object-cover shadow-2xl relative z-10 group-hover:rotate-3 transition-transform duration-500">
+                                <div class="absolute -bottom-2 -right-2 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white w-10 h-10 rounded-full flex items-center justify-center border-4 border-white dark:border-darkCard text-sm shadow-xl z-20">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2 tracking-tight">Instagram</h3>
+                            <a href="https://www.instagram.com/yogagurujii/" target="_blank" class="text-primary dark:text-gold font-bold hover:underline mb-6 block text-lg tracking-wide">@yogagurujii</a>
+                            
+                            <!-- Stats Container -->
+                            <div class="flex justify-center gap-12 mb-8 border-y border-gray-100 dark:border-gray-800 w-full py-6">
+                                <div class="text-center">
+                                    <p class="text-2xl font-black text-gray-900 dark:text-white">14K</p>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Followers</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-black text-gray-900 dark:text-white">2.2K</p>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Reels & Post</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-gray-600 dark:text-gray-400 text-center leading-relaxed mb-10 min-h-[4rem] text-base italic">
+                                "P.G Diploma & M.A in YOGA • Daily Workout & Nutrition • Transforming lives every single day."
+                            </p>
+                            
+                            <a href="https://www.instagram.com/yogagurujii/" target="_blank"
+                                class="w-full py-4.5 bg-gradient-to-r from-pink-600 via-red-500 to-orange-500 text-white font-black rounded-2xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 text-center flex items-center justify-center gap-3">
+                                <i class="fab fa-instagram text-xl"></i> Join our 14K Family
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Content (Reels) -->
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between px-2">
+                            <h4 class="text-2xl font-bold text-gray-900 dark:text-white border-l-4 border-primary pl-4">Latest Reels</h4>
+                            <a href="https://www.instagram.com/yogagurujii/" target="_blank" class="text-primary dark:text-gold text-sm font-bold hover:underline">View All <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 lg:gap-5">
+                            <!-- Reel 1 -->
+                            <a href="https://www.instagram.com/yogagurujii/" target="_blank"
+                                class="group relative aspect-[9/16] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600" 
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-115">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-500 grayscale group-hover:grayscale-0">
+                                    <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-75 group-hover:scale-100 transition-transform">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Reel 2 -->
+                            <a href="https://www.instagram.com/yogagurujii/" target="_blank"
+                                class="group relative aspect-[9/16] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600" 
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-115">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-500">
+                                    <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-75 group-hover:scale-100 transition-transform">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Reel 3 -->
+                            <a href="https://www.instagram.com/yogagurujii/" target="_blank"
+                                class="group relative aspect-[9/16] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                                <img src="https://images.unsplash.com/photo-1588282322673-c31965a75c3e?auto=format&fit=crop&q=80&w=600" 
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-115">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-500">
+                                    <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-75 group-hover:scale-100 transition-transform">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: FACEBOOK -->
+                <div class="flex flex-col space-y-12 fade-up" style="transition-delay: 300ms;">
+                    
+                    <!-- Facebook Profile Card -->
+                    <div class="group bg-white dark:bg-darkCard rounded-[2.5rem] shadow-xl p-10 border border-gray-100 dark:border-gray-800 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-500 relative overflow-hidden">
+                        <!-- Card Aesthetic Accent -->
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-bl-[100px] transition-all duration-700 group-hover:w-48 group-hover:h-48"></div>
+                        
+                        <div class="relative z-10 flex flex-col items-center">
+                            <!-- Avatar with Facebook Glow -->
+                            <div class="relative mb-8">
+                                <div class="absolute inset-0 bg-blue-600 rounded-full blur-md opacity-20 group-hover:opacity-50 transition-opacity"></div>
+                                <img src="https://scontent.fdel1-8.fna.fbcdn.net/v/t39.30808-1/334396203_565790362178461_524149554839077319_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx396x407&amp;ctp=s396x407&amp;_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=3ab145&amp;_nc_ohc=fT9xIRAjv20Q7kNvwFbtwLF&amp;_nc_oc=Adq4mpjDywikJqTuoeuNN9l99NTH_UO4XLNCAe_bEx8JTlOyzf1EOL5YR3VfS9XRGijLKpbPoXcRq5wt4hFQ74aR&amp;_nc_zt=24&amp;_nc_ht=scontent.fdel1-8.fna&amp;_nc_gid=qqqtwu3A9dlzsugyofmvdA&amp;_nc_ss=7a30f&amp;oh=00_AfxqfkILHMTAYAM1sMjmfPfYc6y7ASpHggmPNASjt4mpLA&amp;oe=69D0792B"
+                                    alt="Yoga Guruji Facebook"
+                                    class="w-32 h-32 rounded-full border-4 border-white dark:border-gray-700 object-cover shadow-2xl relative z-10 group-hover:-rotate-3 transition-transform duration-500">
+                                <div class="absolute -bottom-2 -right-2 bg-[#1877F2] text-white w-10 h-10 rounded-full flex items-center justify-center border-4 border-white dark:border-darkCard text-sm shadow-xl z-20">
+                                    <i class="fab fa-facebook-f"></i>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2 tracking-tight">Facebook</h3>
+                            <span class="text-[#1877F2] dark:text-blue-400 font-bold mb-6 block text-lg tracking-wide uppercase tracking-tighter">Official Community Hub</span>
+                            
+                            <!-- Stats Container -->
+                            <div class="flex justify-center gap-12 mb-8 border-y border-gray-100 dark:border-gray-800 w-full py-6">
+                                <div class="text-center">
+                                    <p class="text-2xl font-black text-gray-900 dark:text-white">21K</p>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Likes</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-2xl font-black text-gray-900 dark:text-white">21K</p>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest font-black">Followers</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-gray-600 dark:text-gray-400 text-center leading-relaxed mb-10 min-h-[4rem] text-base">
+                                Join our thriving group for live Q&A, shared progress, and exclusive batch updates from Guru Rahul.
+                            </p>
+                            
+                            <a href="https://www.facebook.com/yogagurujii" target="_blank"
+                                class="w-full py-4.5 bg-[#1877F2] text-white font-black rounded-2xl shadow-lg shadow-blue-500/25 hover:bg-[#166fe5] hover:shadow-blue-500/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 text-center flex items-center justify-center gap-3">
+                                <i class="fab fa-facebook text-xl"></i> Like Our Page
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Facebook Content (Highlights) -->
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold text-gray-900 dark:text-white border-l-4 border-blue-600 pl-4 mb-8">Page Highlights</h4>
+                        <div class="grid gap-4">
+                            <!-- Highlight Item 1 -->
+                            <div class="flex items-center gap-5 p-5 bg-white dark:bg-darkCard rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:translate-x-2 transition-all duration-300 group">
+                                <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600 text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-gray-900 dark:text-white leading-none mb-1">Live Yoga Flows</h5>
+                                    <p class="text-sm text-gray-500">Real-time sessions & workshops</p>
+                                </div>
+                            </div>
+                            <!-- Highlight Item 2 -->
+                            <div class="flex items-center gap-5 p-5 bg-white dark:bg-darkCard rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:translate-x-2 transition-all duration-300 group">
+                                <div class="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center text-emerald-600 text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-gray-900 dark:text-white leading-none mb-1">Expert Diet Advice</h5>
+                                    <p class="text-sm text-gray-500">Healthy eating habits for yogis</p>
+                                </div>
+                            </div>
+                            <!-- Highlight Item 3 -->
+                            <div class="flex items-center gap-5 p-5 bg-white dark:bg-darkCard rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:translate-x-2 transition-all duration-300 group">
+                                <div class="w-14 h-14 bg-gold/10 dark:bg-gold/10 rounded-xl flex items-center justify-center text-gold text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-users-rays"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-gray-900 dark:text-white leading-none mb-1">Community Support</h5>
+                                    <p class="text-sm text-gray-500">Connect with fellow students</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-24 bg-white dark:bg-gray-900 transition-colors duration-500">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-primary dark:text-gold font-bold tracking-wider uppercase text-sm mb-2 block">Clarification</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white border-none">Common Questions</h2>
+                <div class="w-16 h-1 bg-primary dark:bg-gold mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-400 text-lg">Everything you need to know about joining Yoga Guruji.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="group bg-gray-50 dark:bg-darkCard rounded-3xl border border-gray-100 dark:border-gray-800 p-6 md:p-8 [&_summary::-webkit-details-marker]:hidden transition-all duration-300 hover:shadow-lg fade-up">
+                    <summary class="flex items-center justify-between cursor-pointer list-none">
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white pr-4">Can beginners join the Online Morning Batches?</h4>
+                        <span class="shrink-0 transition-transform duration-300 group-open:-rotate-180 bg-white dark:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center shadow-sm">
+                            <i class="fas fa-chevron-down text-primary dark:text-gold text-sm"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+                        Absolutely! Most of our students are beginners. Rahul sir provides modifications for each pose so you can practice safely and progress at your own pace.
+                    </p>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-gray-50 dark:bg-darkCard rounded-3xl border border-gray-100 dark:border-gray-800 p-6 md:p-8 [&_summary::-webkit-details-marker]:hidden transition-all duration-300 hover:shadow-lg fade-up" style="transition-delay: 100ms;">
+                    <summary class="flex items-center justify-between cursor-pointer list-none">
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white pr-4">What equipment do I need for online classes?</h4>
+                        <span class="shrink-0 transition-transform duration-300 group-open:-rotate-180 bg-white dark:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center shadow-sm">
+                            <i class="fas fa-chevron-down text-primary dark:text-gold text-sm"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+                        All you need is a yoga mat, a stable internet connection, and comfortable clothing. Optional props like blocks or a strap can be helpful but aren't mandatory.
+                    </p>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="group bg-gray-50 dark:bg-darkCard rounded-3xl border border-gray-100 dark:border-gray-800 p-6 md:p-8 [&_summary::-webkit-details-marker]:hidden transition-all duration-300 hover:shadow-lg fade-up" style="transition-delay: 200ms;">
+                    <summary class="flex items-center justify-between cursor-pointer list-none">
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white pr-4">How do I book a session for Pain-Relief program?</h4>
+                        <span class="shrink-0 transition-transform duration-300 group-open:-rotate-180 bg-white dark:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center shadow-sm">
+                            <i class="fas fa-chevron-down text-primary dark:text-gold text-sm"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+                        Simply fill out the Contact Form below or directly WhatsApp us at +91 95404 05580. We’ll schedule a free 10-minute consultation to understand your specific pain points.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT AREA -->
+    <section id="contact"
+        class="py-24 bg-white dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-800/50 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-16 items-start">
+
+            <!-- Contact Context -->
+            <div class="lg:col-span-2 fade-up">
+                <span class="text-primary dark:text-gold font-bold tracking-wider uppercase text-sm mb-2 block">Reach
+                    Out</span>
+                <h2 class="text-4xl lg:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white">
+                    Book Your Slot
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg mb-10 leading-relaxed">
+                    Share your details and fitness goal to join online batches, offline classes in Delhi, or special
+                    pain‑relief programs.
+                </p>
+
+                <div class="space-y-6">
+                    <a href="tel:+919540405580"
+                        class="flex items-center gap-5 p-4 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-100 dark:border-gray-800 hover:border-primary dark:hover:border-gold transition-colors group">
+                        <div
+                            class="w-12 h-12 bg-green-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-primary dark:text-gold text-xl group-hover:bg-primary group-hover:text-white dark:group-hover:bg-gold dark:group-hover:text-gray-900 transition-colors">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900 dark:text-white">Call / WhatsApp</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">+91 95404 05580</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:rahulyogatrainerr@gmail.com"
+                        class="flex items-center gap-5 p-4 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-100 dark:border-gray-800 hover:border-primary dark:hover:border-gold transition-colors group">
+                        <div
+                            class="w-12 h-12 bg-green-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-primary dark:text-gold text-xl group-hover:bg-primary group-hover:text-white dark:group-hover:bg-gold dark:group-hover:text-gray-900 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900 dark:text-white">Send an Email</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">rahulyogatrainerr@gmail.com</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="lg:col-span-3 fade-up" style="transition-delay: 200ms;">
+                <form id="contactForm"
+                    class="bg-gray-50 dark:bg-darkCard p-8 md:p-10 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-800 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold mb-2 text-gray-800 dark:text-gray-300 ml-1"
+                                for="name">Your Name</label>
+                            <input type="text" id="name" required
+                                class="w-full px-5 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-primary/50 focus:border-primary dark:focus:ring-gold/50 dark:focus:border-gold outline-none transition-all text-gray-900 dark:text-white placeholder-gray-400 shadow-sm"
+                                placeholder="Your name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 text-gray-800 dark:text-gray-300 ml-1"
+                                for="email">Email Address</label>
+                            <input type="email" id="email" required
+                                class="w-full px-5 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-primary/50 focus:border-primary dark:focus:ring-gold/50 dark:focus:border-gold outline-none transition-all text-gray-900 dark:text-white placeholder-gray-400 shadow-sm"
+                                placeholder="your@email.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold mb-2 text-gray-800 dark:text-gray-300 ml-1"
+                            for="message">Message</label>
+                        <textarea id="message" rows="5" required
+                            class="w-full px-5 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-primary/50 focus:border-primary dark:focus:ring-gold/50 dark:focus:border-gold outline-none transition-all text-gray-900 dark:text-white placeholder-gray-400 resize-none shadow-sm"
+                            placeholder="Write your goal (weight loss, pain relief, flexibility, etc.) and mention whether you want online or offline classes."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-4 bg-primary text-white font-bold text-lg rounded-2xl shadow-lg shadow-primary/30 hover:bg-emerald-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                    <p class="text-xs text-center text-gray-500 dark:text-gray-500 mt-4"><i
+                            class="fas fa-lock mr-1"></i> Your information is secure and will never be shared.</p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+        class="bg-gray-50 dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-12 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <a href="#" class="mb-4 block transition-transform duration-300 hover:scale-105">
+                    <div class="flex flex-col items-center md:items-start gap-2">
+                        <!-- Logo Icon -->
+                        <img src="yogaguruji_logo_1774861678833.png" 
+                             alt="Yoga Guruji logo" class="h-12 w-auto opacity-90">
+                        <!-- Name under logo -->
+                        <span class="text-xl font-extrabold tracking-tight text-emerald-700 dark:text-gold">
+                            Yoga<span class="text-gray-900 dark:text-white"> Guruji</span>
+                        </span>
+                    </div>
+                </a>
+                <p class="text-gray-500 text-sm">
+                    &copy; <span id="year"></span> All rights reserved. 
+                    <span class="mx-2">|</span> 
+                    Created by 
+                    <a href="https://i-nikhilraghav.github.io/" target="_blank" class="font-semibold text-primary dark:text-gold hover:underline">Nikhil Raghav</a>
+                </p>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://www.facebook.com/yogagurujii"
+                    class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white dark:hover:bg-gold dark:hover:text-gray-900 shadow transition-all hover:-translate-y-1"
+                    title="Follow on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/yogagurujii/"
+                    class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white dark:hover:bg-gold dark:hover:text-gray-900 shadow transition-all hover:-translate-y-1"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UC9I0V0Ly8t08khh1Yhn0RhA"
+                    class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white dark:hover:bg-gold dark:hover:text-gray-900 shadow transition-all hover:-translate-y-1"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919540405580" target="_blank"
+        class="whatsapp-float fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all outline-none"
+        aria-label="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- EMAILJS INIT & HANDLER -->
+    <script>
+        (function () {
+            // ACTION REQUIRED: Replace with your actual EmailJS Public Key
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+
+            // ACTION REQUIRED: Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                from_name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            }).then(() => {
+                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Sent Successfully!';
+                btn.classList.add('bg-green-600');
+                btn.classList.remove('bg-primary');
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-green-600', 'opacity-80', 'cursor-not-allowed');
+                    btn.classList.add('bg-primary');
+                    e.target.reset();
+                }, 3000);
+            }).catch(() => {
+                alert("Please add your EmailJS active keys in the code to send an actual message.");
+                btn.innerHTML = originalText;
+                btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                e.target.reset();
+            });
+        });
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- CUSTOM THEME & UI SCRIPTS -->
+    <script>
+        const html = document.documentElement;
+
+        const setupThemeToggle = (toggleBtnId, iconId, textId = null) => {
+            const btn = document.getElementById(toggleBtnId);
+            const icon = document.getElementById(iconId);
+            const textEle = textId ? document.getElementById(textId) : null;
+
+            const syncIcon = () => {
+                const isDark = html.classList.contains('dark');
+                if (isDark) {
+                    icon.classList.replace('fa-moon', 'fa-sun');
+                    icon.classList.remove('text-gray-800');
+                    if (textEle) textEle.textContent = "Light Mode";
+                } else {
+                    icon.classList.replace('fa-sun', 'fa-moon');
+                    icon.classList.add('text-gray-800');
+                    if (textEle) textEle.textContent = "Dark Mode";
+                }
+            };
+
+            syncIcon();
+
+            btn.addEventListener('click', () => {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    html.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+                document.dispatchEvent(new Event('theme-changed'));
+            });
+
+            document.addEventListener('theme-changed', syncIcon);
+        };
+
+        setupThemeToggle('theme-toggle', 'theme-icon');
+        setupThemeToggle('mobile-theme-toggle', 'mobile-theme-icon', 'mobile-theme-text');
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            const icon = mobileBtn.querySelector('i');
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.replace('fa-times', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-times');
+            }
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/919540405580" target="_blank" title="Chat with Rahul Yoga Trainer"
+        class="fixed bottom-6 right-6 z-[60] group flex items-center gap-3">
+        <!-- Label (Hidden by default, shown on hover) -->
+        <span class="max-w-0 overflow-hidden whitespace-nowrap bg-emerald-500 text-white px-0 py-2 rounded-full font-bold shadow-lg group-hover:px-6 group-hover:max-w-xs transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">
+            Chat with us
+        </span>
+        <!-- Floating Button -->
+        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl shadow-xl shadow-emerald-500/30 hover:scale-110 hover:shadow-2xl transition-all duration-300 border-2 border-white/20">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </a>
+</body>
+
+</html>
